@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background: url(https://th.bing.com/th/id/OIP.dF-qBfmI1kKooJvlkN7RIQHaEo?rs=1&pid=ImgDetMain);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header, footer{
+    width: 100%;
+    height: 60px;
+    background-color: #940303;
+    color:#f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #940303;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff0000;
+    padding: 10px;
+}
+
+input, button{
+    width: 100%;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 3px #940303;
+}
+
+button{
+    cursor: pointer;
+}
+
+h2{
+    color: #460404;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    text-shadow: 0 0 3px #ff0000;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+tr{
+    border-bottom: 1px solid #460404;
+}
+
+th, td{
+    padding: 10px;
+    text-align: center;
+}
+
+#section2{
+    background: rgb(238, 192, 192);
+    border-radius: 20px;
+    padding: 2vw;
+    width: 35vw;
+    align-items: center;
+
+}
+#section1{
+    background:rgb(238, 192, 192);
+    border-radius: 20px;
+    padding: 2vw;
+    width: 24vw;
+    align-items: center;
+}
