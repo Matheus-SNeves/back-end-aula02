@@ -24,17 +24,7 @@ function del(req, res) {
     });
 }
 
-function update(req, res) {
-    const id = req.params.id;
-    const sql = `UPDATE produtos SET nome = ${nome}, valor = ${valor}, descricao = ${descricao} WHERE produto_id = ${id}`;
-    con.query(sql, (error, result) => {
-        if (error) {
-            res.status(500).json('Erro ao editar produto');
-        } else {
-            res.status(202).json('Produto editado com sucesso');
-        }
-    });
-}
+
 function read(req, res) {
     const sql = 'SELECT * FROM produtos';
     con.query(sql, (error, result) => {
@@ -45,6 +35,20 @@ function read(req, res) {
         }
     });
 }
+
+function update(req, res) {
+    const id  = req.params.id;
+    const { nome, valor, descricao } = req.body;
+    const sql = `UPDATE clientes SET nome = '${nome}', valor= '${valor}', descricao = '${descricao}' WHERE produto_id = ${id}`;
+    con.query(sql, (error, result) => {
+        if (error) {
+            res.status(500).json('Erro ao alterar cliente');
+        } else {
+            res.status(202).json('Cliente alterado com sucesso');
+        }
+    });
+}
+
 
 module.exports = {
     create,

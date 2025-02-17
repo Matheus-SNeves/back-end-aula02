@@ -60,33 +60,33 @@ function excluirProduto(id) {
                     <td contenteditable="true">${produto.nome}</td>
                     <td contenteditable="true">${produto.valor.toFixed(2)}</td>
                     <td contenteditable="true">${produto.descricao}</td>
-                    <td><button onclick="editarProduto(${produto.produto_id}), (${produto.nome}), (${produto.valor}), (${produto.descricao}) " class="btn btn-primary">Editar</button></td>
                     <td><button onclick="excluirProduto(${produto.produto_id})" class="btn btn-danger">Excluir</button></td>
+                    <td><button onclick="alterar(${produto.produto_id})" class="btn btn-danger">Alterar</button></td>
                 `;
                 tabela.appendChild(linha);
             });
         })
 
-        function editarProduto(id, nome, valor, descricao){
-            corpo={
-                nome: nome,
-                valor: parseFloat(valor),
-                descricao: descricao
+        function alterar(e) {
+            const id = e.parentNode.parentNode.children[0].textContent
+            const corpo = {
+                nome: e.parentNode.parentNode.children[1].textContent,
+                valor: e.parentNode.parentNode.children[2].textContent,
+                descricao: e.parentNode.parentNode.children[3].textContent
             }
             fetch(`http://localhost:4000/produtos/${id}`, {
                 method: 'PUT',
-                content: 'application/json',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(corpo)
             })
-            .then(response => response.status)
-            .then(status => {
-                if(status == 202){
-                    msg3('Produto editado com sucesso');
-                    carregarProdutos();
-                }else{
-                    msg3('Erro ao editar produto');
-                }
-            })
+                .then(response => response.status)
+                .then(status => {
+                    if (status === 202) {
+                        msg3('Produto alterado com sucesso');
+                    } else {
+                        msg3('Erro ao alterar produto');
+                    }
+                });
         }
 
 function msg3(mensagem) {
